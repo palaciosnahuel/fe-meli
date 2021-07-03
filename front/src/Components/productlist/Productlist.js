@@ -13,6 +13,7 @@ const Productlist = () => {
     useEffect(() => {
         getProducts(query).then((response)=>{ 
             setProductos(response);
+            document.title = `${query} | MercadoLibre.com.ar`;
         });;
       }, [location]);
 
