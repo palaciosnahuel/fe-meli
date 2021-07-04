@@ -15,5 +15,24 @@ app.get('/api/items', (req, res) => {
         });
 });
 
+app.get('/api/items/:id', (req, res) => {
+    service.getProduct(req.params.id)
+        .then(product => res.json(product))
+        .catch( (error) => {
+            console.error(error.stack);
+            res.status(500).send(error)
+        });
+});
+
+app.get('/api/items/:id/description', (req, res) => {
+    service.getProduct(req.params.id)
+        .then(products => res.json(products))
+        .catch( (error) => {
+            console.error(error.stack);
+            res.status(500).send(error)
+        });
+});
+
+
 
 app.listen(port, () => console.log(`Server iniciado en el puerto: ${port}!`))

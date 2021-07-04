@@ -1,7 +1,7 @@
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import Navbar from "./Components/navbar/Navbar";
 import Productlist from './Components/productlist/Productlist';
-import Product from "./Components/product/Product";
+import ProductItem from "./Components/ProductItem/ProductItem";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <Navbar/>
         <Switch>
           <Route exact path='/items' component={Productlist} />
-          <Route path='/post/:id'component={Product} />
+          <Route path='/items/:id'component={ProductItem} />
         </Switch>
       </BrowserRouter>
 

@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'; 
 import './Productlist.scss';
-import Product from '../product/Product';
+import ProductItem from '../ProductItem/ProductItem';
 import {getProducts} from '../../Services/MeliApi';
 import {useLocation } from "react-router-dom";
 
@@ -17,10 +17,11 @@ const Productlist = () => {
         });;
       }, [location]);
 
+
     return (
         <div>
            {productos.items ? 
-                productos.items.map((item, index) => <Product data={item} key={index}/>) : (<div> Cargando</div>)}
+                productos.items.map((item, index) => <ProductItem data={item} key={index}/>) : (<div> Cargando</div>)}
         </div>
     )
 }
