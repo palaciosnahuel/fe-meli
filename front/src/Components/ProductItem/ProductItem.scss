@@ -1,4 +1,29 @@
-.product-list-image{
-    height: 180px;
-    width: 180px;
+.product-item-card{
+    display: flex;
+    background-color: white;
+    border-bottom-style: solid;
+    border-bottom-color: #000;
+}
+
+.product-item-image{
+    padding: 16px;
+    img{
+        width: 180px; 
+        height: 180px;
+    }
+}
+
+.product-item-price{
+    background-color: red;
+}
+
+.product-item-title{
+    background-color: yellow;
+}
+.product-item-body{
+    padding-top: 16px;
+}
+
+.product-item-address{
+    float:right;
 }
