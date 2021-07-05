@@ -46,6 +46,24 @@ const createItem = (item)=> {
     }
 }
 
+const createItemDetail = (item)=> { 
+    return {
+            id: item.id,
+            title: item.title,
+            price: {
+                currency: item.currency_id,
+                amount: item.price,
+                decimals: item.price
+            },
+            picture: item.thumbnail,
+            condition: item.condition === "new" ? "Nuevo" : item.condition == "used" ? "Usado" : "",
+            sold_quantity: item.sold_quantity,
+            free_shipping: item.shipping.free_shipping,
+    }
+}
+
+
+
 
 
 exports.getProducts = (query, limit = 30) => {
@@ -58,22 +76,23 @@ exports.getProducts = (query, limit = 30) => {
     }))
 };
 
-const getProductDescription =  (id) => {
-    return newPromise(`https://api.mercadolibre.com/items/${id}/description`).then((response)=>{
+const getProductDescription =  (query) => {
+    return newPromise(`https://api.mercadolibre.com/items/${query}/description`).then((response)=>{
         return response.plain_text 
     }); 
 };
 
-const getProductItem =  (id) => {
-    return newPromise(`https://api.mercadolibre.com/items/${id}`).then((response)=>{
-        return createItem(response)
+const getProductItem =  (query) => {
+    return newPromise(`https://api.mercadolibre.com/items/${query}`).then((response)=>{
+        return createItemDetail(response);
     });
 }
 
 
-exports.getProduct = (id) => {
-    return Promise.all([getProductItem(id)]).then( (responseItem, responseDesc) =>{
-        let item = responseItem[0];
+exports.getProduct = (query) => {
+    return Promise.all([getProductItem(query),getProductDescription(query)]).then( (response) =>{
+        let item = response[0];
+        item["description"] = response[1];
         return  {author,item} ;
     });
 };
