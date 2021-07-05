@@ -24,7 +24,7 @@ const Searchbox = () => {
     }
 
     return (
-            <div className='input-container'>
+            <div className='searchbox-container'>
                 <img src={MeliLogo} alt="MercadoLibre Logo"  className='searchbox-logo'/>
                 <input
                     onKeyUp={handleKeyUp}
@@ -32,7 +32,7 @@ const Searchbox = () => {
                     className='text-input'
                     placeholder='Nunca dejes de buscar'
                 />
-                <button onClick={handleClickSearchButton}  className='search-button'>
+                <button onClick={handleClickSearchButton} className='searchbox-button'>
                 <img src={SearchIcon} alt="Buscar" />
                 </button>
             </div>
