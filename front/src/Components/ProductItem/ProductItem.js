@@ -15,8 +15,8 @@ const ProductItem = (data) => {
             </div>
             <div className="product-item-body">
                 <div className="product-item-price">{data.data.price.amount}</div>
-                <span className="product-item-title">{data.data.title}</span>
                 <span className="product-item-address">{data.data.address.state_name}</span>
+                <span className="product-item-title">{data.data.title}</span>
             </div>
             
         </div>
