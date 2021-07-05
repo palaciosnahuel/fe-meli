@@ -8,9 +8,7 @@ const ProductDetail = () => {
     const [producto, setProductos] = useState([]);
     const location = useLocation();
   
-
     let { id } = useParams();
-
 
     useEffect(() => {
         getProduct(id).then((response)=>{ 
@@ -19,13 +17,9 @@ const ProductDetail = () => {
         });;
       }, [location]);
 
-      console.log(producto)
-
     return (
-        <div className="product-detail-container">
-            <div className="product-item-image">
-                {producto.item.title}
-            </div>
+        <div>
+        {producto.item ? <div>{producto.item.id}</div> : <div>Loading</div> }
         </div>
     )
 }
