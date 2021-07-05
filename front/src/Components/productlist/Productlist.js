@@ -19,10 +19,10 @@ const Productlist = () => {
 
 
     return (
-        <div className="product-container">
+        <ol className="product-container">
            {productos.items ? 
                 productos.items.map((item, index) => <ProductItem data={item} key={index}/>) : (<div> Cargando</div>)}
-        </div>
+        </ol>
     )
 }
 
