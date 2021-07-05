@@ -38,7 +38,11 @@ const createItem = (item)=> {
             },
             picture: item.thumbnail,
             condition: item.condition === "new" ? "Nuevo" : item.condition == "used" ? "Usado" : "",
-            free_shipping: item.shipping.free_shipping
+            free_shipping: item.shipping.free_shipping,
+            address: { 
+                state_name: item.address.state_name,
+                city_name: item.address.city_name
+            }
     }
 }
 
