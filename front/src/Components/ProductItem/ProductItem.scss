@@ -4,14 +4,13 @@
     width: 80%;
     flex-direction: row;
     background-color: white;
-    border-bottom-style: solid;
-    border-bottom-color: #000;
 }
 
 .product-item-image{
     cursor: pointer;
     padding: 16px;
     img{
+        border-radius: 4px;
         width: 180px; 
         height: 180px;
     }
@@ -20,7 +19,6 @@
 .product-item-price{
     font-weight: 400;
     font-size: 24px;
-
     img{ 
         padding-left: 8px;
       }
@@ -28,6 +26,7 @@
 
 .product-item-title{
     cursor: pointer;
+    color:$meli-main-black;
     font-size: 18px;
 }
 .product-item-body{
@@ -43,3 +42,4 @@
     flex-direction: column;
     align-items: flex-end;
 }
+
