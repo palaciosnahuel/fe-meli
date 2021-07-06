@@ -1,7 +1,6 @@
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import Navbar from "./Components/navbar/Navbar";
+import Navbar from "./Components/Navbar/Navbar";
 import Productlist from './Components/productlist/Productlist';
-import './Styles/App.scss';
 import ProductDetail from './Components/ProductDetail/ProductDetail';
 
 function App() {
