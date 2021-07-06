@@ -16,26 +16,36 @@ const Searchbox = () => {
         history.push({ pathname: "/items", search: `?search=${query}` });
     }
     
-    const handleKeyUp = (e) => {
-        setQuery(e.target.value);
+    const handleKeyEnter = (e) => {
         if (e.key === 'Enter') {
-            const data =  getProducts(query);
+            handleClickSearchButton();
         }
     }
 
+    const handleChange = (e) => {
+        setQuery(e.target.value);
+    }
+
+    
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        handleClickSearchButton();
+    }
+
     return (
-            <div className='searchbox-container'>
+            <form className='searchbox-container' onSubmit={handleSubmit} >
                 <img src={MeliLogo} alt="MercadoLibre Logo"  className='searchbox-logo'/>
                 <input
-                    onKeyUp={handleKeyUp}
+                    onKeyUp={handleKeyEnter}
+                    onChange={handleChange}
                     type='text'
                     className='text-input'
                     placeholder='Nunca dejes de buscar'
                 />
-                <button onClick={handleClickSearchButton} className='searchbox-button'>
+                <button type="submit" className='searchbox-button'>
                 <img src={SearchIcon} alt="Buscar" />
                 </button>
-            </div>
+            </form>
     )
 }
 
