@@ -63,9 +63,6 @@ const createItemDetail = (item)=> {
 }
 
 
-
-
-
 exports.getProducts = (query, limit = 30) => {
     return newPromise(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=${limit}`).then((response => {
         const categories = responseHasFilters(response) ? response.filters[0].values[0].path_from_root.map(category => category.name) : [];
