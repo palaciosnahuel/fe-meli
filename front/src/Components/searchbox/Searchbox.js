@@ -1,10 +1,7 @@
 import React, { useState } from 'react'; 
-
 import MeliLogo from '../../Assets/Logo_ML@2x.png.png.png';
 import SearchIcon from '../../Assets/ic_Search.png';
 import './Searchbox.scss';
-import {getProducts} from '../../Services/MeliApi';
-
 import { useHistory } from "react-router-dom";
 
 const Searchbox = () => {
