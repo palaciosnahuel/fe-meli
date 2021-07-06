@@ -18,6 +18,7 @@ const newPromise = (url) => {
             })
         }).on('error', (error) => {
             console.error(`Error: ${error.message}`)
+            reject(error);
         });
     })
 };
@@ -79,19 +80,27 @@ const getProductDescription =  (query) => {
     }); 
 };
 
-const getProductItem =  (query) => {
-    return newPromise(`https://api.mercadolibre.com/items/${query}`).then((response)=>{
-        return createItemDetail(response);
+const getProductCategory =  (query) => {
+    return newPromise(`https://api.mercadolibre.com/categories/${query}`).then((response)=>{
+        return response.name;
     });
 }
 
+const getProductItem = async (query) => {
+    let responseProduct =  createItemDetail(await newPromise(`https://api.mercadolibre.com/items/${query}`));
+    let responseCategory = await getProductCategory("MLA74528");
+    responseProduct["category"] = responseCategory;
+    return responseProduct;
+}
 
 exports.getProduct = (query) => {
     return Promise.all([getProductItem(query),getProductDescription(query)]).then( (response) =>{
         let item = response[0];
         item["description"] = response[1];
-        return  {author,item} ;
+        return {author,item}
     });
 };
+
+
 
 
