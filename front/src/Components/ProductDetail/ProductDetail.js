@@ -32,24 +32,27 @@ const ProductDetail = () => {
 
     return (
         <div className="flex-wrapper product-detail-container">
-        {producto.item ?  
+        {producto.item &&  
             <div>
                 <Breadcrumb categories={producto.item.category}/>
                 <div className="product-detail-info"> 
                     <div className="flex-grid">
-                            <div className="d-col-9 product-detail-img">
+                            <div className="d-col-9 t-col-6 m-col-12 product-detail-img">
                                 <img src={producto.item.picture} alt='Envio Gratis'/>
                             </div>
-                            <div className="d-col-3">
+                            <div className="d-col-3 t-col-6 m-col-12">
                                 <div className="product-detail-statussold">
                                     {producto.item.condition} - {producto.item.sold_quantity} vendidos
                                 </div>
-                                <h1 className="product-detail-title">{producto.item.title}</h1>
+                                <h1 className="product-detail-title">
+                                    {producto.item.title}
+                                </h1>
                                 <div className="product-detail-price">
-                                    $ {priceParse(producto.item.price.amount)} 
-                                    <sup>{decimalParse(producto.item.price.decimals)}</sup>
+                                    $ {priceParse(producto.item.price.amount)}<sup>{decimalParse(producto.item.price.decimals)}</sup>
                                 </div>
-                                <div className="d-col-12"> <button className="product-detail-button"> Comprar </button></div>
+                                <div className="product-detail-button"> 
+                                    <button className="test"> Comprar </button>
+                                </div>
                             </div>
                     </div> 
                     <div className="flex-grid">
@@ -61,7 +64,6 @@ const ProductDetail = () => {
                     </div> 
                 </div> 
             </div>
-                : <div>Cargando</div> 
         }
         </div>
     )
