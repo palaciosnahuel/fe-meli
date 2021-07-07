@@ -1,6 +1,6 @@
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import Navbar from "./Components/Navbar/Navbar";
-import Productlist from './Components/productlist/Productlist';
+import ProductList from './Components/ProductList/ProductList';
 import ProductDetail from './Components/ProductDetail/ProductDetail';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <BrowserRouter>
         <Navbar/>
         <Switch>
-          <Route exact path='/items' component={Productlist} />
+          <Route exact path='/items' component={ProductList} />
           <Route path='/items/:id'component={ProductDetail} />
         </Switch>
       </BrowserRouter>

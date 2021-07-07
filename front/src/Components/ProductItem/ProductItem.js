@@ -30,7 +30,7 @@ const ProductItem = (product) => {
                     }
                     </div>
                     <span className="product-item-address">{product.data.address.state_name}</span>
-                    <span className="product-item-title" onClick={()=>handleClick(product.data.id)}>{product.data.title}</span>
+                    <h2 className="product-item-title" onClick={()=>handleClick(product.data.id)}>{product.data.title}</h2>
                 </div>
             </li>
     )

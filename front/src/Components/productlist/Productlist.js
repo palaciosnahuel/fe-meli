@@ -1,12 +1,12 @@
-import React, { useState,useEffect } from 'react'; 
-import './Productlist.scss';
+import React, {useState,useEffect} from 'react'; 
 import ProductItem from '../ProductItem/ProductItem';
 import {getProducts} from '../../Services/MeliApi';
-import {useLocation } from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
+import './ProductList.scss';
 
 
-const Productlist = () => {
+const ProductList = () => {
 
     const [productos, setProductos] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -22,9 +22,6 @@ const Productlist = () => {
         });;
       }, [location]);
 
-
-  
-
     return (
         <div>   
             {categories ? <div className="product-breadcrumb-container"><Breadcrumb categories={ categories }/>  </div> : ""}
@@ -35,4 +32,4 @@ const Productlist = () => {
     )
 }
 
-export default Productlist;
+export default ProductList;
