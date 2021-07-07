@@ -7,7 +7,13 @@ import TruckIcon from '../../Assets/ic_shipping.png';
 const ProductItem = (data) => {
 
     const history = useHistory();
-    const handleClick = (id) => { history.push({ pathname: `/items/${id}`}); }
+    const handleClick = (id) => { history.push({ pathname: `/items/${id}`}); 
+}
+console.log(data.data.price)
+
+    // El separador de miles en ARS separa a partir de 5 dígitos. 
+    const price = (data.data.price.amount).toLocaleString(data.data.price.currency);
+    const decimal = (data.data.price.decimals != "00" && data.data.price.decimals);
 
     return (
             <li className="product-item-card">
@@ -16,8 +22,10 @@ const ProductItem = (data) => {
                     <img src={data.data.picture} alt={data.title} />
                 </div>
                 <div className="product-item-body">
-                    <div className="product-item-price">$ {data.data.price.amount}
-                    
+                    <div className="product-item-price">$ {price}
+                    {decimal &&
+                    <sup>{decimal}</sup>
+                    }
                     {data.data.free_shipping &&
                     <img src={TruckIcon} alt='Free shipping available' className='shipping-icon' />
                     }

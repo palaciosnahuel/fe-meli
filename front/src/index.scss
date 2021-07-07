@@ -19,3 +19,114 @@ code {
     monospace;
 }
 
+
+.flex-grid {
+	display: flex;
+	justify-content: center;
+}
+
+
+@media (min-width: 980px) {
+	.flex-wrapper {
+		padding-left: 14%;
+		padding-right: 14%;
+	}
+	
+	.flex-grid:first-child {margin-top: 0;}
+	.d-col-1 						{width: 7.05%;}
+	.d-col-2 						{width: 15.5%;}
+	.d-col-3, 
+	.d-col-thirds 					{width: 23.95%;}
+	.d-col-4, 
+	.d-col-quarters 				{width: 32.4%;}
+	.d-col-5 						{width: 40.85%;}
+	.d-col-6, 
+	.d-col-halfs					{width: 49.3%;}
+	.d-col-7 						{width: 57.75%;}
+	.d-col-8 						{width: 66.2%;}
+	.d-col-9 						{width: 74.65%;}
+	.d-col-10 						{width: 83.1%;}
+	.d-col-11 						{width: 91.55%;}
+	.d-col-12, 
+	.d-col-full 					{width: 100%;}
+}
+
+
+
+@media only screen and (min-width: 661px) and (max-width: 979px) {	
+	.flex-wrapper {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+	
+	.flex-grid {flex-flow: row wrap;}
+	.t-col-4,
+	.t-col-6,
+	.t-col-12 {margin-top: 2rem}
+	.t-col-4 		{width: 31.46%	}
+	.t-col-6 		{width: 48.6%;}
+	.t-col-12 		{width: 100%;}
+	.flex-grid:first-child .t-col-4,
+	.flex-grid:first-child .t-col-6,
+	.flex-grid:first-child .t-col-12 {
+		 margin-top: 0;
+	}
+}
+
+
+
+
+@media only screen and (min-width: 0px) and (max-width: 660px) {
+	.flex-wrapper {
+		padding-left: 3%;
+		padding-right: 3%;
+	}
+	.flex-grid {flex-flow: row wrap;}
+	.m-col-6,
+	.m-col-12 {margin-top: 2rem;}
+	.m-col-6 		{width: 47.2%;}
+	.m-col-12 		{width: 100%;}	
+	.flex-grid:first-child .m-col-6,
+	.flex-grid:first-child .m-col-12 {
+		 margin-top: 0;
+	}
+}
+
+
+.arrows { white-space: nowrap; }
+.arrows li {
+    display: inline-block;
+    line-height: 8px;
+    margin: 0 5px 0 -10px;
+    padding: 0 11px;
+    position: relative;
+}
+.arrows li::before,
+.arrows li::after {
+    border-right: 1px solid #666666;
+    content: '';
+    display: block;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    transform: skewX(45deg);   
+}
+.arrows li::after {
+    bottom: 0;
+    top: auto;
+    transform: skewX(-45deg);
+}
+
+.arrows li:last-of-type::before, 
+.arrows li:last-of-type::after { 
+    display: none; 
+}
+
+
+.arrows li:nth-of-type(1) a { color: hsl(0, 0%, 70%); } 
+.arrows li:nth-of-type(2) a { color: hsl(0, 0%, 65%); } 
+.arrows li:nth-of-type(3) a { color: hsl(0, 0%, 50%); } 
+.arrows li:nth-of-type(4) a { color: hsl(0, 0%, 45%); } 

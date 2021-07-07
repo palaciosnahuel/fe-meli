@@ -1,0 +1,54 @@
+@import '../../Styles/main.scss';
+
+
+.product-detail-container{
+    margin-bottom: 20px;
+}
+
+.product-detail-info{
+    background-color:white;
+    padding: 32px;
+}
+
+.product-detail-img{
+    width: 680px;
+    img{
+        width:100%;
+    }
+}
+
+.product-detail-title{
+    font-size: 24px;
+    margin-top: 16px;
+}
+
+.product-detail-button{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 50%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+}
+.product-detail-price{
+    font-size: 48px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.product-detail-statussold{
+    font-size: 14px;
+}
+
+.product-detail-description-title{
+    font-size: 28px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+
+
+

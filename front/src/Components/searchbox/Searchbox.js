@@ -9,6 +9,11 @@ const Searchbox = () => {
     const [query, setQuery] = useState('');
     const history = useHistory();
 
+
+    const handleClickLogo = () => { 
+        history.push({ pathname: `/`}); 
+    }
+
     const handleClickSearchButton = () => {
         history.push({ pathname: "/items", search: `?search=${query}` });
     }
@@ -31,7 +36,7 @@ const Searchbox = () => {
 
     return (
             <form className='searchbox-container' onSubmit={handleSubmit} >
-                <img src={MeliLogo} alt="MercadoLibre Logo"  className='searchbox-logo'/>
+                <img src={MeliLogo} onClick={handleClickLogo} alt="MercadoLibre Logo"  className='searchbox-logo'/>
                 <input
                     onKeyUp={handleKeyEnter}
                     onChange={handleChange}
