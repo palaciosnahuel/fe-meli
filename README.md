@@ -35,7 +35,7 @@ npm start.js
 
 
 #### Backend
-* [NodeJs](https://es.reactjs.org/) - Node.js® es un entorno de ejecución para JavaScript construido con el motor de JavaScript V8 de Chrome. interfaces 
+* [NodeJs](https://es.reactjs.org/) - Node.js® es un entorno de ejecución para JavaScript construido con el motor de JavaScript V8 de Chrome.  
 * [Express](https://sass-lang.com/) - Express es una infraestructura de aplicaciones web Node.js mínima y flexible
 
 
