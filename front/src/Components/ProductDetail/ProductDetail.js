@@ -40,18 +40,20 @@ const ProductDetail = () => {
                             <div className="d-col-9 t-col-6 m-col-12 product-detail-img">
                                 <img src={producto.item.picture} alt='Envio Gratis'/>
                             </div>
-                            <div className="d-col-3 t-col-6 m-col-12">
-                                <div className="product-detail-statussold">
-                                    {producto.item.condition} - {producto.item.sold_quantity} vendidos
-                                </div>
-                                <h1 className="product-detail-title">
-                                    {producto.item.title}
-                                </h1>
-                                <div className="product-detail-price">
-                                    $ {priceParse(producto.item.price.amount)}<sup>{decimalParse(producto.item.price.decimals)}</sup>
-                                </div>
-                                <div className="product-detail-button"> 
-                                    <button className="test"> Comprar </button>
+                            <div className="d-col-3 t-col-6 m-col-12 testcard">
+                                <div clasName="testbody">
+                                    <div className="product-detail-statussold">
+                                        {producto.item.condition} - {producto.item.sold_quantity} vendidos
+                                    </div>
+                                    <h1 className="product-detail-title">
+                                        {producto.item.title}
+                                    </h1>
+                                    <div className="product-detail-price">
+                                        $ {priceParse(producto.item.price.amount)}<sup>{decimalParse(producto.item.price.decimals)}</sup>
+                                    </div>
+                                    <div className="product-detail-button"> 
+                                        Comprar 
+                                    </div>
                                 </div>
                             </div>
                     </div> 
