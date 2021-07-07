@@ -18,6 +18,14 @@ const ProductDetail = () => {
         });
       }, [id]);
 
+    // El separador de miles en ARS separa a partir de 5 dígitos. 
+    const priceParse = (price, currency) => {
+        return (price).toLocaleString(currency);
+    } 
+    const decimalParse = (decimal) => {
+        return (decimal != "00" && decimal);
+    } 
+
     return (
         <div className="flex-wrapper product-detail-container">
         {producto.item ?  
@@ -29,9 +37,14 @@ const ProductDetail = () => {
                                 <img src={producto.item.picture} alt='Envio Gratis'/>
                             </div>
                             <div className="d-col-3">
-                                <div className="product-detail-statussold">{producto.item.condition} - {producto.item.sold_quantity} vendidos</div>
+                                <div className="product-detail-statussold">
+                                    {producto.item.condition} - {producto.item.sold_quantity} vendidos
+                                </div>
                                 <div className="product-detail-title">{producto.item.title}</div>
-                                <div className="product-detail-price">$ {producto.item.price.amount}</div>
+                                <div className="product-detail-price">
+                                    $ {priceParse(producto.item.price.amount)} 
+                                    <sup>{decimalParse(producto.item.price.decimals)}</sup>
+                                </div>
                                 <div className="d-col-12"> <button className="product-detail-button"> Comprar </button></div>
                             </div>
                     </div> 
