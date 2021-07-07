@@ -34,8 +34,8 @@ const createItem = (item)=> {
             title: item.title,
             price: {
                 currency: item.currency_id,
-                amount: item.price,
-                decimals: item.price
+                amount: Math.trunc(item.price),
+                decimals: (item.price % 1).toFixed(2).substring(2)
             },
             picture: item.thumbnail,
             condition: item.condition === "new" ? "Nuevo" : item.condition == "used" ? "Usado" : "",
@@ -53,8 +53,8 @@ const createItemDetail = (item)=> {
             title: item.title,
             price: {
                 currency: item.currency_id,
-                amount: item.price,
-                decimals: item.price
+                amount: Math.trunc(item.price),
+                decimals: (item.price % 1).toFixed(2).substring(2)
             },
             picture: item.thumbnail,
             condition: item.condition === "new" ? "Nuevo" : item.condition == "used" ? "Usado" : "",
@@ -90,7 +90,6 @@ const getProductCategory =  (query) => {
 const getProductItem = async (query) => {
     let responseProduct =  createItemDetail(await newPromise(`https://api.mercadolibre.com/items/${query}`));
     let responseCategory = await getProductCategory(responseProduct.category_id);
-    console.log(responseCategory)
     responseProduct["category"] = responseCategory.path_from_root.map(category => category.name);
     return responseProduct;
 }
