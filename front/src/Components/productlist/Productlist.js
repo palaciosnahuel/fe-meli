@@ -22,9 +22,12 @@ const Productlist = () => {
         });;
       }, [location]);
 
+
+  
+
     return (
-        <div>
-            {categories ? <Breadcrumb categories={ categories }/> : ""}
+        <div>   
+            {categories ? <div className="product-breadcrumb-container"><Breadcrumb categories={ categories }/>  </div> : ""}
             <ol className="product-container">
                 {productos.items ? productos.items.map((item, index) => <ProductItem data={item} key={index}/>) : (<div> Cargando</div>)}
             </ol>
