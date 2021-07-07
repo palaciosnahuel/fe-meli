@@ -60,6 +60,7 @@ const createItemDetail = (item)=> {
             condition: item.condition === "new" ? "Nuevo" : item.condition == "used" ? "Usado" : "",
             sold_quantity: item.sold_quantity,
             free_shipping: item.shipping.free_shipping,
+            category_id: item.category_id
     }
 }
 
@@ -82,14 +83,15 @@ const getProductDescription =  (query) => {
 
 const getProductCategory =  (query) => {
     return newPromise(`https://api.mercadolibre.com/categories/${query}`).then((response)=>{
-        return response.name;
+        return response;
     });
 }
 
 const getProductItem = async (query) => {
     let responseProduct =  createItemDetail(await newPromise(`https://api.mercadolibre.com/items/${query}`));
-    let responseCategory = await getProductCategory("MLA74528");
-    responseProduct["category"] = responseCategory;
+    let responseCategory = await getProductCategory(responseProduct.category_id);
+    console.log(responseCategory)
+    responseProduct["category"] = responseCategory.path_from_root.map(category => category.name);
     return responseProduct;
 }
 
