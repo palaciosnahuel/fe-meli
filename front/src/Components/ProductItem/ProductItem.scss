@@ -25,13 +25,14 @@
 }
 
 .product-item-title{
+    font-weight: normal;
     cursor: pointer;
     color:$meli-main-black;
     font-size: 18px;
 }
 .product-item-body{
     flex:2;
-    padding-top: 40px;
+    padding-top: 32px;
 }
 
 .product-item-address{

@@ -14,7 +14,7 @@ const ProductItem = (product) => {
      En caso de querer usar el separador de miles, parsear a mano.
     */ 
     const price = (product.data.price.amount).toLocaleString(product.data.price.currency);
-    const decimal = (product.data.price.decimals != "00" && product.data.price.decimals);
+    const decimal = (product.data.price.decimals !== "00" && product.data.price.decimals);
 
     return (
             <li className="product-item-card">
@@ -24,7 +24,7 @@ const ProductItem = (product) => {
                 <div className="product-item-body">
                     <div className="product-item-price">$ {price}
                         {decimal &&<sup>{decimal}</sup>}
-                        {product.data.free_shipping &&<img src={TruckIcon} alt='Free shipping available' className='shipping-icon'/>}
+                        {product.data.free_shipping &&<img src={TruckIcon} alt='Envío gratis' className='shipping-icon'/>}
                     </div>
                     <span className="product-item-address">{product.data.address.state_name}</span>
                     <h2 className="product-item-title" onClick={()=>handleClick(product.data.id)}>
