@@ -4,7 +4,9 @@ export const getProducts = async (query,limit=4) => {
       const response = await fetch(url);
       const data = await response.json();
       return data;
-    } catch (err) {}
+    } catch (err) {
+      console.error(err);
+    }
   };
   
   export const getProduct = async (query) => {
@@ -13,6 +15,8 @@ export const getProducts = async (query,limit=4) => {
       const response = await fetch(url);
       const data = await response.json();
       return data;
-    } catch (err) {}
+    } catch (err) {
+      console.error(err);
+    }
   };
   
