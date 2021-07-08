@@ -1,6 +1,4 @@
 const https = require('https');
-var async = require('async');
-const { create } = require('domain');
 
 const responseHasFilters = (response) => {
     return response.filters.length && response.filters[0].values ? true : false;
@@ -64,17 +62,6 @@ const createItemDetail = (item)=> {
     }
 }
 
-
-exports.getProducts = (query, limit = 30) => {
-    return newPromise(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=${limit}`).then((response => {
-        const categories = responseHasFilters(response) ? response.filters[0].values[0].path_from_root.map(category => category.name) : [];
-        const items = response.results.map((item) => {
-            return createItem(item);
-        });
-        return {author,categories,items }
-    }))
-};
-
 const getProductDescription =  (query) => {
     return newPromise(`https://api.mercadolibre.com/items/${query}/description`).then((response)=>{
         return response.plain_text 
@@ -93,6 +80,16 @@ const getProductItem = async (query) => {
     responseProduct["category"] = responseCategory.path_from_root.map(category => category.name);
     return responseProduct;
 }
+
+exports.getProducts = (query, limit = 30) => {
+    return newPromise(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=${limit}`).then((response => {
+        const categories = responseHasFilters(response) ? response.filters[0].values[0].path_from_root.map(category => category.name) : [];
+        const items = response.results.map((item) => {
+            return createItem(item);
+        });
+        return {author,categories,items }
+    }))
+};
 
 exports.getProduct = (query) => {
     return Promise.all([getProductItem(query),getProductDescription(query)]).then( (response) =>{
