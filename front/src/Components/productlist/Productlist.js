@@ -4,13 +4,14 @@ import {getProducts} from '../../Services/MeliApi';
 import {useLocation} from "react-router-dom";
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import './ProductList.scss';
+import NoResultCardItems from '../ProductList/NoResultItemsCard/NoResultItemsCard';
 
 
 const ProductList = () => {
 
     const [productos, setProductos] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [resultsFound, setResultsFound] = useState(false);
+    const [resultsFound, setResultsFound] = useState(true);
 
     const location = useLocation();
     let query = new URLSearchParams(location.search).get("search");
@@ -21,8 +22,8 @@ const ProductList = () => {
             (response.items.length !== 0 ) ? setResultsFound(true) : setResultsFound(false);
             setCategories(response.categories);
             document.title = `${query} | MercadoLibre.com.ar`;
-        });
-      }, [location]);
+        }).then();
+      }, [query]);
 
 
     return (
@@ -35,7 +36,7 @@ const ProductList = () => {
                     {productos ? productos.map((item, idx) => <ProductItem data={item} key={idx}/>) : (<div> Cargando</div>)}
                 </ol>
             </div> 
-            : <div className="product-container"> Sin resultados </div>}
+            : <NoResultCardItems/> }
             
         </div>
     )
