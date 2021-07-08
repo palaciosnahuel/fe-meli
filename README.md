@@ -62,6 +62,7 @@ Se divide en
 ## Mejoras a futuro 📋
 * Migrar a TypeScript (TSX)
 * Automatizar inicio con script de npm
+* Validar el httpresponse del back, por ejemplo, en caso que el ID no exista.
 
 
 ## Notas 📄
