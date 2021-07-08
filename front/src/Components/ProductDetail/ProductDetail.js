@@ -37,10 +37,10 @@ const ProductDetail = () => {
                 <Breadcrumb categories={producto.item.category}/>
                 <div className="product-detail-info"> 
                     <div className="flex-grid">
-                            <div className="d-col-9 t-col-6 m-col-12 product-detail-img">
+                            <div className="d-col-8 t-col-6 m-col-12 product-detail-img">
                                 <img src={producto.item.picture} alt='Envio Gratis'/>
                             </div>
-                            <div className="d-col-3 t-col-6 m-col-12 testcard">
+                            <div className="d-col-4 t-col-6 m-col-12 testcard">
                                 <div clasName="testbody">
                                     <div className="product-detail-statussold">
                                         {producto.item.condition} - {producto.item.sold_quantity} vendidos
