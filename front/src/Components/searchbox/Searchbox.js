@@ -9,7 +9,6 @@ const Searchbox = () => {
     const [query, setQuery] = useState('');
     const history = useHistory();
 
-
     const handleClickLogo = () => { 
         history.push({ pathname: `/`}); 
     }
@@ -28,7 +27,6 @@ const Searchbox = () => {
         setQuery(e.target.value);
     }
 
-    
     const handleSubmit = (e) =>{
         e.preventDefault();
         handleClickSearchButton();
